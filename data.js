@@ -94,7 +94,7 @@ const DATA = {
         "Explore"
       ],
       "businessModel": "Any",
-      "companySize": "Enterprise (budget/time required)",
+      "companySize": "Scaleup, Enterprise (remote ethnography has reduced barriers)",
       "teamSize": "Solo or Small (2-5)",
       "userAccess": "High",
       "customerBase": "Any",
@@ -166,7 +166,7 @@ const DATA = {
     {
       "id": "M7",
       "name": "Forum / Community Analysis",
-      "description": "Analyzing public discussions in forums, Reddit, app stores, and online communities to understand user needs, frustrations, and language without directly engaging participants.",
+      "description": "Analyzing public discussions in forums, Reddit, Discord servers, Slack communities, app stores, and online communities to understand user needs, frustrations, and language without directly engaging participants.",
       "category": "generative",
       "risk": [
         "V"
@@ -358,6 +358,7 @@ const DATA = {
       "category": "evaluative",
       "risk": [
         "V",
+        "U",
         "Vi"
       ],
       "stage": [
@@ -436,8 +437,8 @@ const DATA = {
       "description": "Show participants a design for exactly five seconds, then ask what they remember \u2014 testing first impressions, visual hierarchy, and whether the primary message lands immediately. Measures perception, not comprehension.",
       "category": "evaluative",
       "risk": [
-        "U",
-        "V"
+        "V",
+        "U"
       ],
       "stage": [
         "Validate"
@@ -508,7 +509,7 @@ const DATA = {
       "whenToUse": "Need usability data fast without scheduling sessions; want to test across more participants than moderated allows; validating straightforward tasks where follow-up probing isn't critical; comparing two design variants on task success rate.",
       "whenNotToUse": "Testing complex or ambiguous flows where participants need clarification; need to understand WHY users struggle (no probing possible); prototype is too rough for self-guided use; participants need onboarding or context-setting.",
       "karaokeCheck": "Unmoderated testing feels efficient, but reviewing hours of video is not. If you're running unmoderated tests and only watching the highlight reels, you're losing the nuance that makes usability testing valuable. Define your analysis protocol before you run the sessions.",
-      "companionTools": "Heuristic Review (before \u2014 catch low-hanging issues first), Task Analysis (before \u2014 define realistic tasks)"
+      "companionTools": "Heuristic Review (before \u2014 catch low-hanging issues first), Assumption Mapping (before \u2014 define what design assumptions to test)"
     },
     {
       "id": "M18",
@@ -592,7 +593,7 @@ const DATA = {
     {
       "id": "M29",
       "name": "Digital Prototyping",
-      "description": "Interactive mockups built in design tools (Figma, Sketch, Framer) that simulate the real product experience at varying fidelity levels. Ranges from clickable wireframes to pixel-perfect, animated prototypes that feel like the finished product.",
+      "description": "Interactive mockups built in design tools (Figma, Framer, and AI-assisted prototyping tools) that simulate the real product experience at varying fidelity levels. Ranges from clickable wireframes to pixel-perfect, animated prototypes that feel like the finished product.",
       "category": "evaluative",
       "risk": [
         "U",
@@ -772,7 +773,7 @@ const DATA = {
       "whenToUse": "Evaluating onboarding or first-use flows; testing learnability before recruiting users; design review where you need a structured framework beyond \"looks good to me\"; complement to heuristic review when the risk is specifically about new-user experience.",
       "whenNotToUse": "Evaluating expert/power-user workflows (cognitive walkthrough assumes novice perspective); need to understand real user behavior (use usability testing); design is too early for step-by-step task flows; using it as a substitute for actual user testing.",
       "karaokeCheck": "A cognitive walkthrough by the team that designed the interface has a blind spot \u2014 you already know how it works. If you can't bring in someone unfamiliar with the design, at least be rigorous about the protocol: answer each step's questions honestly, and document where you're uncertain rather than assuming users will figure it out.",
-      "companionTools": "Heuristic Review (complement \u2014 broader principle-based analysis), Usability Testing (after \u2014 validate findings with real users), Task Analysis (before \u2014 define the task flows to walk through)## Experimentation Methods\n\nMethods that test with real behavior, real money, or real market signals."
+      "companionTools": "Heuristic Review (complement \u2014 broader principle-based analysis), Usability Testing (after \u2014 validate findings with real users), Cognitive Walkthrough (complement \u2014 task-flow analysis)"
     },
     {
       "id": "M20",
@@ -807,6 +808,7 @@ const DATA = {
       "description": "Testing multiple variables simultaneously (e.g., headline + image + CTA) to identify the best combination and interaction effects between elements. More complex than A/B testing but reveals how elements work together.",
       "category": "experimentation",
       "risk": [
+        "V",
         "U"
       ],
       "stage": [
@@ -833,7 +835,8 @@ const DATA = {
       "description": "Alternating between treatment and control conditions over time periods (e.g., enabling a feature for one week, disabling it the next) to measure impact when randomizing users isn't possible \u2014 common in marketplace and logistics systems.",
       "category": "experimentation",
       "risk": [
-        "V"
+        "V",
+        "Vi"
       ],
       "stage": [
         "Optimize"
@@ -892,7 +895,7 @@ const DATA = {
         "Validate"
       ],
       "businessModel": "Any",
-      "companySize": "Startup, Scaleup",
+      "companySize": "Any",
       "teamSize": "Solo or Small (2-5)",
       "userAccess": "Moderate (need to drive traffic)",
       "customerBase": "Pre-launch or Any",
@@ -913,7 +916,8 @@ const DATA = {
       "category": "experimentation",
       "risk": [
         "V",
-        "F"
+        "F",
+        "Vi"
       ],
       "stage": [
         "Validate"
@@ -1205,6 +1209,7 @@ const DATA = {
       "description": "Using your own product internally for real work \u2014 not staged demos, but actual daily reliance \u2014 to experience the same friction, gaps, and value that external users encounter.",
       "category": "experimentation",
       "risk": [
+        "V",
         "U",
         "F"
       ],
@@ -1225,7 +1230,7 @@ const DATA = {
       "whenToUse": "Your team represents or approximates the target user; building developer tools, productivity software, or internal platforms; want to catch usability and reliability issues before users do; building empathy for the user experience across the team.",
       "whenNotToUse": "Your team is fundamentally different from target users (a team of engineers dogfooding a product for nurses doesn't work); dogfooding becomes an excuse to skip external user research; internal feedback is treated as representative of all user segments.",
       "karaokeCheck": "Dogfooding is only valid if you're honest about the gap between your team and your actual users. Your team has context, workarounds, and tolerance that real users don't. If dogfooding is your only feedback channel, you're building for yourselves.",
-      "companionTools": "Usability Testing (test with real external users), Bug Tracking (formalize dogfooding findings), Beta Testing (expand beyond internal team)"
+      "companionTools": "Usability Testing (test with real external users), Feature Audit (formalize dogfooding findings), Beta Testing (expand beyond internal team)"
     },
     {
       "id": "M72",
@@ -1472,7 +1477,7 @@ const DATA = {
       "category": "synthesis",
       "whenToSuggest": "After generative research, when the team needs to turn findings into a prioritized backlog. When planning a new product or major feature release.",
       "whenNotToSuggest": "You don't have enough user understanding yet (do research first); the product is a single-feature tool where mapping is overkill.",
-      "karaokeWarning": ""
+      "karaokeWarning": "Story mapping without prior research is fiction writing with sticky notes. And a story map that the team creates in a workshop but never references when prioritizing the backlog is a collaboration exercise, not a planning tool."
     },
     {
       "id": "T35",
@@ -1481,7 +1486,7 @@ const DATA = {
       "category": "synthesis",
       "whenToSuggest": "After interviews or observations, when synthesizing the full user experience. When multiple teams (product, marketing, support) need a shared view of the customer experience. When identifying where the biggest experience gaps are.",
       "whenNotToSuggest": "You haven't talked to actual users yet (a journey map based on assumptions is fiction); mapping for decoration instead of decision-making.",
-      "karaokeWarning": ""
+      "karaokeWarning": "A journey map built from internal assumptions is organizational fan fiction. And a journey map that took two weeks to create but doesn't change any product priorities is an art project, not a discovery artifact."
     },
     {
       "id": "T36",
@@ -1490,7 +1495,7 @@ const DATA = {
       "category": "synthesis",
       "whenToSuggest": "After journey mapping, when you need to understand the operational complexity behind the experience. When service delivery involves multiple teams or systems. When diagnosing where internal breakdowns cause user pain.",
       "whenNotToSuggest": "The product is purely digital with no service component; you don't have the organizational knowledge to map backstage processes (do stakeholder interviews first).",
-      "karaokeWarning": ""
+      "karaokeWarning": "A service blueprint that maps the process as it should work rather than as it does work is organizational wishful thinking. And a blueprint that reveals five backstage breakdowns causing user pain \u2014 but leads to zero operational changes \u2014 is a diagnostic without treatment."
     },
     {
       "id": "T37",
@@ -1499,7 +1504,7 @@ const DATA = {
       "category": "synthesis",
       "whenToSuggest": "After user interviews \u2014 as a lightweight synthesis method. When the team needs to build empathy quickly without reading all the research notes. In workshops to align on user understanding.",
       "whenNotToSuggest": "As a substitute for proper qualitative analysis; when you have enough data for more rigorous synthesis (affinity diagramming, personas); when the team already has strong user empathy.",
-      "karaokeWarning": ""
+      "karaokeWarning": "An empathy map where the \"Says\" quadrant is filled with what the team thinks users say, rather than actual quotes from interviews, is a projection exercise, not an empathy exercise. If you didn't talk to users, you're mapping your own assumptions \u2014 call it that."
     },
     {
       "id": "T38",
@@ -1508,16 +1513,16 @@ const DATA = {
       "category": "synthesis",
       "whenToSuggest": "After generative research reveals distinct user behavior patterns. When the team talks about \"users\" as a monolith and needs to segment. When design decisions need a shared reference for \"who are we building for?\"",
       "whenNotToSuggest": "Based on assumptions without research (assumption-based personas are fiction); when you have 2 users and don't need segmentation; when personas become static posters instead of living documents updated with new evidence.",
-      "karaokeWarning": ""
+      "karaokeWarning": "Personas based on demographics and assumptions instead of research data are corporate horoscopes. And a persona poster hanging in the office that nobody references when making product decisions is wall art, not a design tool. If you can't point to the interview data behind each persona attribute, it's fiction."
     },
     {
-      "id": "T-NEW",
+      "id": "T42",
       "name": "Affinity Diagramming",
       "description": "Clustering qualitative data (interview quotes, observations, feedback) into groups based on natural relationships, then naming the themes that emerge. The foundational synthesis method for turning raw qualitative data into structured insights.",
       "category": "synthesis",
       "whenToSuggest": "After ANY generative research \u2014 interviews, observations, diary studies, support ticket analysis. When you have lots of qualitative data and need to find patterns. In team workshops to collaboratively make sense of research.",
       "whenNotToSuggest": "You have quantitative data that needs statistical analysis, not clustering; the data set is too small to cluster meaningfully (3 interviews probably don't need formal affinity diagramming); using it to manufacture themes that confirm existing beliefs.",
-      "karaokeWarning": ""
+      "karaokeWarning": "Affinity diagramming where the facilitator pre-defines the clusters, or where themes like \"users want a better experience\" emerge, isn't synthesis \u2014 it's confirmation with sticky notes. The test: did your themes surprise anyone? If not, you may have sorted rather than synthesized."
     },
     {
       "id": "T52",
@@ -1535,7 +1540,7 @@ const DATA = {
       "category": "operating-practice",
       "whenToSuggest": "Always \u2014 this is the operating rhythm that prevents Discovery Karaoke. When a team has no regular user contact. As the foundation that makes all other methods more effective.",
       "whenNotToSuggest": "If the team already has regular, structured user contact; if interviews are happening but not connected to product decisions (that's karaoke too \u2014 talking to users without acting on what you hear).",
-      "karaokeWarning": ""
+      "karaokeWarning": "Continuous Interviewing that produces weekly transcripts but never changes a single product decision is the highest-fidelity form of Discovery Karaoke. You're doing the motions perfectly. The question is whether anything changes because of what you hear."
     },
     {
       "id": "T61",
@@ -1544,7 +1549,7 @@ const DATA = {
       "category": "operating-practice",
       "whenToSuggest": "When mapping a complex domain before building; when multiple teams need to align on how a system works; when exploring Feasibility risk for a complex workflow. Pairs well with stakeholder interviews.",
       "whenNotToSuggest": "Simple features or flows that don't need domain modeling; the team already understands the domain well; no engineering representation in the room (Event Storming needs technical perspective).",
-      "karaokeWarning": ""
+      "karaokeWarning": "Event Storming where the architect tells everyone the domain model and people place stickies to match is documentation theater, not collaborative discovery. The value is in the disagreements and hotspots \u2014 if everyone politely agrees, you either have a simple domain or a suppressed discussion."
     },
     {
       "id": "T62",
@@ -1553,7 +1558,7 @@ const DATA = {
       "category": "operating-practice",
       "whenToSuggest": "After completing a discovery cycle or launching a product/feature. When the team feels stuck in a discovery rut (same methods every time = karaoke). Quarterly review of discovery practices.",
       "whenNotToSuggest": "Too frequently (discovery cycles need time to produce results before reflecting); as a substitute for doing the discovery work itself.",
-      "karaokeWarning": ""
+      "karaokeWarning": "A discovery retrospective that produces the same action items as last quarter's retrospective is performing reflection without learning. If your retro notes from 6 months ago could be copy-pasted into today's retro, the retro isn't the problem \u2014 the team's willingness to actually change is."
     }
   ],
   "antiPatterns": [
