@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discovery Karaoke Prevention Engine — The Thinking Lens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <a href="https://www.the-thinking-lens.com/" target="_blank" class="brand-link">
+          <img src="https://storage.ghost.io/c/36/32/36329eed-f2e0-4b12-9dea-52ae08e33b63/content/images/2025/09/Untitled-design-2.png" alt="The Thinking Lens" class="brand-logo">
+        </a>
+        <span class="tagline">Discovery Karaoke Prevention Engine</span>
+      </div>
+      <nav id="main-nav">
+        <button class="nav-btn active" data-tab="home">Home</button>
+        <button class="nav-btn" data-tab="methods">Methods <span class="badge">52</span></button>
+        <button class="nav-btn" data-tab="tools">Tools <span class="badge">18</span></button>
+        <button class="nav-btn" data-tab="matrix">Matrix</button>
+        <button class="nav-btn" data-tab="compare">Compare</button>
+        <button class="nav-btn" data-tab="diagnose">Diagnose</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME TAB -->
+    <section id="tab-home" class="tab-content active">
+      <div class="hero">
+        <h2>Stop Doing Discovery Karaoke</h2>
+        <p class="hero-sub">Default &ne; Deliberate. Familiar &ne; Fit-for-purpose.</p>
+        <p><strong>Discovery Karaoke</strong> = defaulting to the same familiar discovery methods out of habit rather than deliberately matching methods to your actual risk and context.</p>
+      </div>
+
+      <div class="framework-grid">
+        <div class="framework-card">
+          <h3>Five Discovery Risks</h3>
+          <div class="risk-list" id="risk-pills"></div>
+        </div>
+        <div class="framework-card">
+          <h3>Three Stages</h3>
+          <div class="stage-item"><span class="stage-tag explore">Explore</span> Understand the problem</div>
+          <div class="stage-item"><span class="stage-tag validate">Validate</span> Test solutions</div>
+          <div class="stage-item"><span class="stage-tag optimize">Optimize</span> Improve what's live</div>
+        </div>
+        <div class="framework-card">
+          <h3>Evidence Thresholds</h3>
+          <div class="threshold-item"><strong>Small bet</strong> &mdash; 1 method, moderate evidence</div>
+          <div class="threshold-item"><strong>Medium bet</strong> &mdash; 2 methods, converging evidence</div>
+          <div class="threshold-item"><strong>Large bet</strong> &mdash; 3+ methods, strong converging evidence</div>
+        </div>
+        <div class="framework-card">
+          <h3>Two-Layer Toolkit</h3>
+          <p><strong>Layer 1:</strong> 52 Discovery Methods — evidence-generating activities</p>
+          <p><strong>Layer 2:</strong> 18 Thinking Tools — cognitive companions</p>
+        </div>
+      </div>
+
+      <div class="anti-patterns-preview">
+        <h3>Are You Doing Discovery Karaoke?</h3>
+        <div id="karaoke-symptoms"></div>
+        <button class="btn btn-primary" onclick="switchTab('diagnose')">Take the Diagnostic</button>
+      </div>
+    </section>
+
+    <!-- METHODS TAB -->
+    <section id="tab-methods" class="tab-content">
+      <div class="tab-header">
+        <h2>Discovery Methods</h2>
+        <p>52 evidence-generating activities. Filter by risk, stage, category, or constraint.</p>
+      </div>
+      <div class="filters">
+        <div class="filter-group">
+          <label>Risk</label>
+          <div class="filter-pills" id="filter-risk"></div>
+        </div>
+        <div class="filter-group">
+          <label>Stage</label>
+          <div class="filter-pills" id="filter-stage"></div>
+        </div>
+        <div class="filter-group">
+          <label>Category</label>
+          <div class="filter-pills" id="filter-category"></div>
+        </div>
+        <div class="filter-group">
+          <label>Search</label>
+          <input type="text" id="method-search" placeholder="Search by name or description..." class="search-input">
+        </div>
+      </div>
+      <div class="results-count" id="methods-count"></div>
+      <div class="method-grid" id="method-grid"></div>
+    </section>
+
+    <!-- TOOLS TAB -->
+    <section id="tab-tools" class="tab-content">
+      <div class="tab-header">
+        <h2>Thinking Tools</h2>
+        <p>18 cognitive companions. These structure thinking — pair them with Layer 1 methods, don't use standalone.</p>
+      </div>
+      <div class="tool-grid" id="tool-grid"></div>
+    </section>
+
+    <!-- MATRIX TAB -->
+    <section id="tab-matrix" class="tab-content">
+      <div class="tab-header">
+        <h2>Risk &times; Stage Matrix</h2>
+        <p>Click any cell to see matching methods. Top 2 methods shown per cell.</p>
+      </div>
+      <div class="matrix-container">
+        <table class="matrix-table" id="matrix-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="stage-col explore">Explore</th>
+              <th class="stage-col validate">Validate</th>
+              <th class="stage-col optimize">Optimize</th>
+            </tr>
+          </thead>
+          <tbody id="matrix-body"></tbody>
+        </table>
+      </div>
+      <div id="matrix-detail" class="matrix-detail hidden"></div>
+    </section>
+
+    <!-- COMPARE TAB -->
+    <section id="tab-compare" class="tab-content">
+      <div class="tab-header">
+        <h2>Compare Methods</h2>
+        <p>Select two methods to see them side-by-side.</p>
+      </div>
+      <div class="compare-selectors">
+        <select id="compare-a" class="compare-select"><option value="">Select method A...</option></select>
+        <span class="vs-badge">vs</span>
+        <select id="compare-b" class="compare-select"><option value="">Select method B...</option></select>
+      </div>
+      <div id="compare-result" class="compare-result hidden"></div>
+    </section>
+
+    <!-- DIAGNOSE TAB -->
+    <section id="tab-diagnose" class="tab-content">
+      <div class="tab-header">
+        <h2>Discovery Karaoke Diagnostic</h2>
+        <p>Score yourself on 8 questions. Find out if your discovery process has become karaoke.</p>
+      </div>
+      <div id="diagnostic-quiz" class="diagnostic-quiz"></div>
+      <div id="diagnostic-result" class="diagnostic-result hidden"></div>
+    </section>
+
+    <!-- METHOD DETAIL MODAL -->
+    <div id="method-modal" class="modal hidden">
+      <div class="modal-overlay" onclick="closeModal()"></div>
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Framework: <a href="https://www.the-thinking-lens.com/stop-doing-discovery-karaoke/" target="_blank">The Thinking Lens</a> &mdash; "Stop Doing Discovery Karaoke"</p>
+    <p>52 discovery methods + 18 thinking tools. Match the method to the risk, not the habit.</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
