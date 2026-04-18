@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discovery Karaoke Prevention Engine — The Thinking Lens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <a href="https://www.the-thinking-lens.com/" target="_blank" class="brand-link">
+          <img src="https://storage.ghost.io/c/36/32/36329eed-f2e0-4b12-9dea-52ae08e33b63/content/images/2025/09/Untitled-design-2.png"
+               alt="The Thinking Lens" class="brand-logo">
+        </a>
+        <span class="tool-name">Discovery Karaoke Prevention Engine</span>
+      </div>
+      <nav class="main-nav" id="main-nav">
+        <button class="nav-btn active" data-tab="home"      onclick="switchTab('home')">Overview</button>
+        <button class="nav-btn"        data-tab="find"      onclick="switchTab('find')">Find a Method</button>
+        <button class="nav-btn"        data-tab="diagnose"  onclick="switchTab('diagnose')">Diagnose</button>
+        <button class="nav-btn"        data-tab="reference" onclick="switchTab('reference')">Reference</button>
+        <button class="nav-btn"        data-tab="about"     onclick="switchTab('about')">About</button>
+      </nav>
+      <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════════ HOME ══ -->
+    <section id="tab-home" class="tab-content active">
+
+      <div class="hero">
+        <div class="hero-inner">
+          <p class="hero-eyebrow">Discovery Karaoke Prevention Engine</p>
+          <h1 class="hero-title">Stop Doing Discovery Karaoke</h1>
+          <p class="hero-sub">
+            <strong>Discovery Karaoke</strong> = defaulting to the same familiar methods out of habit
+            rather than deliberately matching methods to your actual risk and context.
+          </p>
+          <p class="hero-logic">The framework: <strong>Risk → Stage → Method → Evidence</strong></p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="openWizard()">Help me find a method</button>
+            <button class="btn btn-secondary" onclick="switchTab('diagnose')">Diagnose my practice</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-section">
+        <h2 class="section-title">What's your primary risk?</h2>
+        <p class="section-sub">Click a risk to see matched methods.</p>
+        <div class="risk-cards" id="home-risks"></div>
+      </div>
+
+      <div class="home-section home-matrix-section">
+        <h2 class="section-title">The Method Matrix</h2>
+        <p class="section-sub">Top methods per risk × stage. Click any cell to explore.</p>
+        <div class="matrix-scroll">
+          <table class="home-matrix">
+            <thead>
+              <tr>
+                <th class="matrix-corner"></th>
+                <th class="matrix-stage-head stage-E">Explore</th>
+                <th class="matrix-stage-head stage-Va">Validate</th>
+                <th class="matrix-stage-head stage-O">Optimize</th>
+              </tr>
+            </thead>
+            <tbody id="home-matrix-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="home-section home-cta-section">
+        <div class="cta-card">
+          <h3>Are you doing Discovery Karaoke?</h3>
+          <p>10 questions. Find out if your discovery practice has become karaoke.</p>
+          <button class="btn btn-primary" onclick="switchTab('diagnose')">Take the diagnostic</button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ FIND ══ -->
+    <section id="tab-find" class="tab-content">
+
+      <div class="find-header">
+        <h2 class="section-title">Find a Method</h2>
+        <button class="find-guide-btn" onclick="openWizard()">Not sure where to start? Get guided →</button>
+      </div>
+
+      <!-- Primary filters: risk + stage -->
+      <div class="primary-filters">
+        <div class="filter-group">
+          <label class="filter-label">Risk</label>
+          <div class="filter-pills" id="filter-risk"></div>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Stage</label>
+          <div class="filter-pills" id="filter-stage"></div>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Category</label>
+          <div class="filter-pills" id="filter-cat"></div>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Time</label>
+          <div class="filter-pills" id="filter-tn"></div>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Effort</label>
+          <div class="filter-pills" id="filter-eff"></div>
+        </div>
+        <div class="filter-group filter-group-tools">
+          <label class="filter-label">Context Tools</label>
+          <button class="filter-pill tools-toggle" id="show-tools-toggle" onclick="toggleShowTools()">Include context tools</button>
+        </div>
+      </div>
+
+      <!-- Search + controls -->
+      <div class="find-toolbar">
+        <input type="text" id="method-search" class="search-input"
+               placeholder="Search by name, description, or use case…"
+               oninput="setSearch(this.value)">
+        <span class="methods-count" id="methods-count"></span>
+        <button class="btn-reset hidden" id="reset-filters" onclick="resetAllFilters()">Reset all filters</button>
+      </div>
+
+      <!-- Grid -->
+      <div class="method-grid" id="method-grid"></div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ DIAGNOSE ══ -->
+    <section id="tab-diagnose" class="tab-content">
+
+      <div class="tab-header">
+        <h2 class="section-title">Discovery Karaoke Diagnostic</h2>
+        <p class="section-sub">
+          Score yourself on 10 statements (0 = never, 3 = always).
+          A reflective heuristic — use it to surface patterns worth examining.
+        </p>
+      </div>
+
+      <div class="diag-wrap">
+        <div id="diag-questions" class="diag-questions"></div>
+
+        <div class="diag-submit-row">
+          <button class="btn btn-primary hidden" id="diag-submit" onclick="submitDiag()">
+            See my result
+          </button>
+        </div>
+
+        <div id="diag-result"></div>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ REFERENCE ══ -->
+    <section id="tab-reference" class="tab-content">
+
+      <div class="tab-header">
+        <h2 class="section-title">Full Method Reference</h2>
+        <p class="section-sub">All 80 entries — methods + context tools. Click any row for the full detail.</p>
+      </div>
+
+      <div class="ref-controls">
+        <select id="ref-sort" class="ref-select">
+          <option value="id">Sort by ID</option>
+          <option value="name">Sort by name</option>
+          <option value="category">Sort by category</option>
+          <option value="effort">Sort by effort</option>
+          <option value="evidence">Sort by evidence</option>
+        </select>
+        <select id="ref-cat-filter" class="ref-select"></select>
+      </div>
+
+      <div class="ref-table-wrap">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Method</th>
+              <th>Category</th>
+              <th>Risk</th>
+              <th>Stage</th>
+              <th>Effort</th>
+              <th>Evidence</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="ref-body"></tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ ABOUT ══ -->
+    <section id="tab-about" class="tab-content">
+
+      <div class="about-wrap">
+
+        <div class="about-body">
+
+          <h1>About this tool</h1>
+
+          <p>Most product teams default to the same 3&ndash;5 discovery methods. Not because they&rsquo;re the best fit &mdash; because they&rsquo;re familiar. Under time pressure, familiar becomes default. Default &ne; deliberate.</p>
+
+          <p>I called it Discovery Karaoke: singing the same songs every time, regardless of the room. It works until it doesn&rsquo;t. Then it just feels off-key.</p>
+
+          <p>The article &ldquo;Stop Doing Discovery Karaoke&rdquo; was published on The Thinking Lens in June 2025. It named the dysfunction, added Compliance &amp; Ethics as a fifth product risk alongside the four classic ones, and built the Risk-Method Matrix &mdash; a 5&times;3 grid matching methods to risk type and stage.</p>
+
+          <p>Ten months later, the framework had held up. The EU AI Act enforcement validated the fifth risk. A retrospective confirmed the matrix was still the most actionable output on the blog.</p>
+
+          <p>That prompted a question: what if it wasn&rsquo;t just an article? What if it could ask you about your situation and recommend the right method &mdash; matched to your actual risk, stage, and constraints?</p>
+
+          <p>So I built it. First as a Claude Code skill &mdash; an experiment in turning a framework into an interactive advisor. Then as this web app, so it works for everyone, not just Claude users. Both will be available soon.</p>
+
+          <p>It&rsquo;s not a discovery encyclopedia. It&rsquo;s the framework made opinionated: tell it your risk, your stage, your constraints &mdash; and it tells you what to do next.</p>
+
+          <p class="about-article-link">
+            <a href="https://www.the-thinking-lens.com/stop-doing-discovery-karaoke/" target="_blank">Read the original article &rarr;</a>
+          </p>
+
+          <hr class="about-divider">
+
+          <h4 class="about-note-title">A note on accuracy</h4>
+
+          <p>The method entries are as accurate as I could make them, but no reference is perfect. Cost and time estimates are intentionally kept relative &mdash; no exact figures. They age fast, and AI tooling is already changing what some of these methods cost and how long they take.</p>
+
+          <p>AI was used in building this: to check references, validate relationships between methods, prepare the data from the skill&rsquo;s method database for the web, and to build the web app itself. The framework, the curation, and the judgement calls are mine. The accountability too &mdash; so if you spot something wrong or missing: <a href="mailto:info@the-thinking-lens.com">info@the-thinking-lens.com</a></p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════ DRAWER ══ -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <aside class="method-drawer" id="method-drawer" role="dialog" aria-label="Method detail">
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close">&#x2715;</button>
+    <div class="drawer-body" id="drawer-body"></div>
+  </aside>
+
+  <!-- ═══════════════════════════════════════════════ WIZARD ══ -->
+  <div class="wizard-overlay" id="wizard-overlay" onclick="closeWizard()"></div>
+  <div class="wizard-modal" id="wizard-modal" role="dialog" aria-label="Find a method">
+    <button class="wizard-close" onclick="closeWizard()" aria-label="Close">&#x2715;</button>
+    <div class="wizard-body" id="wizard-body"></div>
+  </div>
+
+  <footer class="site-footer">
+    <p>
+      Framework: <a href="https://www.the-thinking-lens.com/stop-doing-discovery-karaoke/" target="_blank">The Thinking Lens</a>
+      &mdash; &ldquo;Stop Doing Discovery Karaoke&rdquo;
+    </p>
+    <p>69 methods &middot; 11 context tools &middot; Match the method to the risk, not the habit.</p>
+  </footer>
+
+  <script src="data.js?v=2.1.1"></script>
+  <script src="app.js?v=2.1.1"></script>
+  <script>
+    function toggleMobileNav() {
+      document.getElementById('main-nav').classList.toggle('mobile-open');
+    }
+  </script>
+
+</body>
+</html>
