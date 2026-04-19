@@ -12,7 +12,7 @@ A web tool for product teams to stop doing Discovery Karaoke — by matching the
 Given a risk and stage, the tool surfaces the right discovery methods — not a laundry list, but the right ones for your context. Built around the framework: **Risk → Stage → Method → Evidence**.
 
 - **Find a Method** — filter by risk, stage, category, and constraints; guided wizard for step-by-step recommendations
-- **Diagnose** — 10-question interactive scorecard to identify karaoke patterns in your practice
+- **Diagnose** — 12-question interactive scorecard to identify karaoke patterns in your practice
 - **Reference** — full sortable/filterable table of all 80 entries (69 methods + 11 context tools)
 - **Method Matrix** — 5 risks × 3 stages, top methods per cell, clickable
 
@@ -76,4 +76,4 @@ Methods sourced from established product discovery literature: Teresa Torres, Ma
 
 ## License
 
-[CC BY 4.0](LICENSE) — free to use, share, and adapt with attribution to Amodiovalerio Verde / The Thinking Lens.
+[CC BY-NC 4.0](LICENSE) — free to use, share, and adapt with attribution to Amodiovalerio Verde / The Thinking Lens. Commercial use prohibited.

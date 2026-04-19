@@ -1027,10 +1027,10 @@ function renderDiagResult(total) {
   if (!resultEl) return;
 
   const bands = [
-    { max: 8,  label: 'Deliberate discovery',    desc: 'You are matching methods to risks.', cls: 'band-good' },
-    { max: 15, label: 'Mild karaoke',             desc: 'Some defaults creeping in. Review your method selection discipline.', cls: 'band-mild' },
-    { max: 21, label: 'Significant karaoke',      desc: 'Build or revisit your risk-to-method map.', cls: 'band-sig' },
-    { max: 30, label: 'Full karaoke',             desc: 'The discovery practice needs a fundamental reset.', cls: 'band-full' },
+    { max: 10, label: 'Deliberate discovery',    desc: 'You are matching methods to risks.', cls: 'band-good' },
+    { max: 18, label: 'Mild karaoke',             desc: 'Some defaults creeping in. Review your method selection discipline.', cls: 'band-mild' },
+    { max: 25, label: 'Significant karaoke',      desc: 'Build or revisit your risk-to-method map.', cls: 'band-sig' },
+    { max: 36, label: 'Full karaoke',             desc: 'The discovery practice needs a fundamental reset.', cls: 'band-full' },
   ];
   const band = bands.find(b => total <= b.max) || bands[bands.length - 1];
 
@@ -1064,7 +1064,7 @@ function renderDiagResult(total) {
 
   resultEl.innerHTML = `
     <div class="diag-result-card ${band.cls}">
-      <div class="result-score">${total}<span class="result-max">/30</span></div>
+      <div class="result-score">${total}<span class="result-max">/36</span></div>
       <div class="result-band">${band.label}</div>
       <p class="result-desc">${band.desc}</p>
     </div>
